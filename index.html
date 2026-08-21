@@ -673,12 +673,13 @@ function removeFromCart(index){
     const product = products[index];
 
     cart.push({
-        name: product.name,
-        price: selectedSize.includes("Full Sleeve") && product.fullSleevePrice
-            ? product.fullSleevePrice
-            : product.price,
-        size: selectedSize
-    });
+    name: product.name,
+    image: product.image,
+    price: selectedSize.includes("Full Sleeve") && product.fullSleevePrice
+        ? product.fullSleevePrice
+        : product.price,
+    size: selectedSize
+});
 
     document.getElementById("cartCount").textContent = cart.length;
 
