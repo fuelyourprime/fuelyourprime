@@ -541,7 +541,11 @@ function addToCart(index){
 
     document.getElementById("cartCount").textContent = cart.length;
 
-    alert(product.name + " (" + selectedSize + ") added to cart!");
+alert(product.name + " (" + selectedSize + ") — ₹" + (
+    selectedSize.includes("Full Sleeve") && product.fullSleevePrice
+        ? product.fullSleevePrice
+        : product.price
+) + " added to cart!");
 
 }
 
