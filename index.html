@@ -612,8 +612,56 @@ function renderProducts(){
   });
 
 }
+function renderCart(){
 
-function addToCart(index){
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    if(cart.length === 0){
+        cartItems.innerHTML = "<p>Your cart is empty.</p>";
+        cartTotal.textContent = "0";
+        return;
+    }
+
+    cart.forEach((item, index) => {
+
+        total += item.price;
+
+        const itemDiv = document.createElement("div");
+
+        itemDiv.className = "cart-item";
+
+        itemDiv.innerHTML = `
+            <div>
+                <strong>${item.name}</strong>
+                <p>Size: ${item.size}</p>
+                <p>₹${item.price}</p>
+            </div>
+
+            <button onclick="removeFromCart(${index})">
+                REMOVE
+            </button>
+        `;
+
+        cartItems.appendChild(itemDiv);
+    });
+
+    cartTotal.textContent = total;
+}
+
+function removeFromCart(index){
+
+    cart.splice(index, 1);
+
+    document.getElementById("cartCount").textContent = cart.length;
+
+    renderCart();
+}
+  function addToCart(index){
 
     const selectedSize = document.getElementById("size-" + index).value;
 
@@ -634,14 +682,15 @@ function addToCart(index){
 
     document.getElementById("cartCount").textContent = cart.length;
 
-alert(product.name + " (" + selectedSize + ") — ₹" + (
-    selectedSize.includes("Full Sleeve") && product.fullSleevePrice
-        ? product.fullSleevePrice
-        : product.price
-) + " added to cart!");
-  renderProducts();
-renderCart();
-}
+    renderCart();
+
+    alert(product.name + " (" + selectedSize + ") - ₹" + (
+        selectedSize.includes("Full Sleeve") && product.fullSleevePrice
+            ? product.fullSleevePrice
+            : product.price
+    ) + " added to cart!");
+
+  }
   
 function toggleMenu(){
     const nav = document.querySelector("header nav");
