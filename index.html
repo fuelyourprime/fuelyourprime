@@ -522,11 +522,26 @@ function renderProducts(){
 
 function addToCart(index){
 
-  cart.push(products[index]);
+    const selectedSize = document.getElementById("size-" + index).value;
 
-  document.getElementById("cartCount").textContent = cart.length;
+    if(!selectedSize){
+        alert("Please select a size first.");
+        return;
+    }
 
-  alert(products[index].name + " added to cart!");
+    const product = products[index];
+
+    cart.push({
+        name: product.name,
+        price: selectedSize.includes("Full Sleeve") && product.fullSleevePrice
+            ? product.fullSleevePrice
+            : product.price,
+        size: selectedSize
+    });
+
+    document.getElementById("cartCount").textContent = cart.length;
+
+    alert(product.name + " (" + selectedSize + ") added to cart!");
 
 }
 
