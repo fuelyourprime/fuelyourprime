@@ -612,13 +612,20 @@ alert(product.name + " (" + selectedSize + ") — ₹" + (
         ? product.fullSleevePrice
         : product.price
 ) + " added to cart!");
-
-}
-
 renderProducts();
 renderCart();
 openCart();
+}
+  
+function toggleMenu(){
+    const nav = document.querySelector("header nav");
 
+    if(nav.style.display === "flex"){
+        nav.style.display = "none";
+    }else{
+        nav.style.display = "flex";
+    }
+}
 </script>
 
 </body>
