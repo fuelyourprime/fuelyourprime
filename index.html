@@ -419,7 +419,7 @@ const products = [
     image:"Portugal black panther player version.jpg",
     price:750,
 fullSleevePrice:820,
-    sizes:"Player: M (3) • L (3) • XL (1) • 3XL (1) | Full Sleeve: M (1) • L (1)",
+    sizes:["Player • M","Player • L","Player • XL","Player • 3XL","Full Sleeve • M","Full Sleeve • L"],
     stock:true
   },
 
@@ -428,7 +428,7 @@ fullSleevePrice:820,
     team:"Barcelona",
     image:"Barcelona Away Purple Player version.jpg",
     price:750,
-    sizes:"M (1) • L (1) • XL (1)",
+    sizes:["Player • M","Player • L","Player • XL"],
     stock:true
   },
 
@@ -438,7 +438,7 @@ fullSleevePrice:820,
     image:"Real madrid away green player version.jpg",
     price:750,
 fullSleevePrice:820,
-    sizes:"Player: S (1) • M (2) • L (1) • XL (1) | Full Sleeve: L (2)",
+    sizes:["Player • S","Player • M","Player • L","Player • XL","Full Sleeve • L"],
     stock:true
   },
 
@@ -447,7 +447,7 @@ fullSleevePrice:820,
     team:"Spain",
     image:"Spain Away player version.jpg",
 price:820,
-    sizes:"Full Sleeve: M (1) • L (1) • 4XL (1)",
+    sizes:["Full Sleeve • M","Full Sleeve • L","Full Sleeve • 4XL"],
     stock:true
   }
 
@@ -488,8 +488,12 @@ function renderProducts(){
         <div class="price">₹${product.price}${product.fullSleevePrice ? ` | Full Sleeve ₹${product.fullSleevePrice}` : ''}</div>
 
         <div class="sizes">
-          Sizes: ${product.sizes}
-        </div>
+    <label>Size:</label>
+    <select id="size-${index}" class="size-select">
+        <option value="">Select size</option>
+        ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join("")}
+    </select>
+</div>
 
         ${
           product.stock
