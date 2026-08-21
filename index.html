@@ -612,7 +612,7 @@ alert(product.name + " (" + selectedSize + ") — ₹" + (
         ? product.fullSleevePrice
         : product.price
 ) + " added to cart!");
-renderProducts();
+  renderProducts();
 renderCart();
 openCart();
 }
@@ -626,6 +626,7 @@ function toggleMenu(){
         nav.style.display = "flex";
     }
 }
+  renderProducts();
 </script>
 
 </body>
