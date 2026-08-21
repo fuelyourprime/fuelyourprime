@@ -636,16 +636,18 @@ function renderCart(){
         itemDiv.className = "cart-item";
 
         itemDiv.innerHTML = `
-            <div>
-                <strong>${item.name}</strong>
-                <p>Size: ${item.size}</p>
-                <p>₹${item.price}</p>
-            </div>
+    <img src="${item.image}" class="cart-item-image" alt="${item.name}">
 
-            <button onclick="removeFromCart(${index})">
-                REMOVE
-            </button>
-        `;
+    <div class="cart-item-info">
+        <strong>${item.name}</strong>
+        <p>Size: ${item.size}</p>
+        <p>₹${item.price}</p>
+    </div>
+
+    <button onclick="removeFromCart(${index})">
+        REMOVE
+    </button>
+`;
 
         cartItems.appendChild(itemDiv);
     });
