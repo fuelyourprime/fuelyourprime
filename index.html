@@ -313,35 +313,62 @@ footer p{
 }
 
 @media(max-width:600px){
-  nav a{
-    display:none;
-  }
+
+    nav{
+        display:none;
+        position:absolute;
+        top:100%;
+        right:20px;
+        background:#fff;
+        padding:15px;
+        flex-direction:column;
+        gap:15px;
+        box-shadow:0 5px 15px rgba(0,0,0,0.15);
+        z-index:1000;
+    }
+
+    nav a{
+        display:block;
+        margin-left:0;
+        padding:8px 12px;
+    }
+
     .menu-btn{
         display:block;
+        position:relative;
+        z-index:1001;
     }
-.logo-image {
-    width:220px;
+
+    .logo-image{
+        width:220px;
+    }
+
+    .hero{
+        padding-top:55px;
+    }
+
+    .products{
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+    }
+
+    .product-image{
+        height:190px;
+    }
+
+    .card-info{
+        padding:12px;
+    }
+
+    .card-info h3{
+        font-size:14px;
+    }
+
+    .section{
+        padding:40px 14px;
+    }
+
 }
-  .hero{
-    padding-top:55px;
-  }
-
-  .products{
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-  }
-
-  .product-image{
-    height:190px;
-  }
-
-  .card-info{
-    padding:12px;
-  }
-
-  .card-info h3{
-    font-size:14px;
-  }
 
   .section{
     padding:40px 14px;
@@ -614,7 +641,6 @@ alert(product.name + " (" + selectedSize + ") — ₹" + (
 ) + " added to cart!");
   renderProducts();
 renderCart();
-openCart();
 }
   
 function toggleMenu(){
