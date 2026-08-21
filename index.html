@@ -70,7 +70,14 @@ nav a{
   color:#222;
   font-size:14px;
 }
-
+.menu-btn{
+    display:none;
+    background:none;
+    border:none;
+    font-size:26px;
+    cursor:pointer;
+    color:#111;
+}
 .cart{
   border:1px solid #ddd;
   padding:9px 14px;
@@ -264,7 +271,10 @@ footer p{
   nav a{
     display:none;
   }
-
+    .menu-btn{
+        display:block;
+    }
+}
   .hero{
     padding-top:55px;
   }
@@ -308,7 +318,7 @@ footer p{
       <a href="#contact">Contact</a>
       <a href="#cart" class="cart">Cart 🛒 <span id="cartCount">0</span></a>
     </nav>
-
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 </header>
 
