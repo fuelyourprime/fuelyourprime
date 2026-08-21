@@ -83,7 +83,52 @@ nav a{
   padding:9px 14px;
   border-radius:20px;
 }
+.cart-panel{
+  display:none;
+  position:fixed;
+  top:0;
+  right:0;
+  width:360px;
+  max-width:90%;
+  height:100vh;
+  background:#fff;
+  z-index:1000;
+  padding:25px;
+  box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+}
 
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #ddd;
+  padding-bottom:15px;
+}
+
+.cart-header button{
+  border:0;
+  background:none;
+  font-size:30px;
+  cursor:pointer;
+}
+
+.cart-total{
+  margin-top:25px;
+  padding-top:15px;
+  border-top:1px solid #ddd;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.checkout-btn{
+  width:100%;
+  margin-top:20px;
+  padding:14px;
+  background:#111;
+  color:#fff;
+  border:0;
+  cursor:pointer;
+}
 .hero{
   max-width:1200px;
   margin:auto;
@@ -398,7 +443,22 @@ footer p{
   </div>
 
 </section>
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button onclick="closeCart()">×</button>
+  </div>
 
+  <div id="cartItems"></div>
+
+  <div class="cart-total">
+    Total: ₹<span id="cartTotal">0</span>
+  </div>
+
+  <button class="checkout-btn" onclick="checkout()">
+    CHECKOUT
+  </button>
+</div>
 <footer>
 
   <div class="footer-logo">PRIME</div>
@@ -454,7 +514,13 @@ price:820,
 ];
 
 let cart = [];
+function openCart(){
+  document.getElementById("cartPanel").style.display = "block";
+}
 
+function closeCart(){
+  document.getElementById("cartPanel").style.display = "none";
+}
 function renderProducts(){
 
   const container = document.getElementById("products");
