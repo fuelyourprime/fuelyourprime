@@ -7,6 +7,7 @@
 <title>PRIME — Fuel Your Prime</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -44,24 +45,11 @@ header{
   color:#111;
 }
 
-.logo-image {
-    width:280px;
-    height:auto;
-    object-fit:contain;
-    display:block;
-}
-
-.logo-text{
-  font-size:20px;
-  font-weight:800;
-  letter-spacing:4px;
-}
-
-.logo-sub{
-  font-size:8px;
-  letter-spacing:2px;
-  color:#777;
-  margin-top:3px;
+.logo-image{
+  width:280px;
+  height:auto;
+  object-fit:contain;
+  display:block;
 }
 
 nav a{
@@ -70,61 +58,39 @@ nav a{
   color:#222;
   font-size:14px;
 }
+
 .menu-btn{
-    display:none;
-    background:none;
-    border:none;
-    font-size:26px;
-    cursor:pointer;
-    color:#111;
+  display:none;
+  background:none;
+  border:none;
+  font-size:26px;
+  cursor:pointer;
+  color:#111;
 }
+
+/* CART */
+
 .cart{
   border:1px solid #ddd;
   padding:9px 14px;
   border-radius:20px;
 }
+
 .cart-panel{
   display:none;
   position:fixed;
   top:0;
   right:0;
-  width:360px;
-  max-width:90%;
+  width:420px;
+  max-width:94%;
   height:100vh;
   background:#fff;
-  z-index:1000;
+  z-index:2000;
   padding:25px;
   box-shadow:-5px 0 20px rgba(0,0,0,0.2);
-}
-.cart-item{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:12px 0;
-    border-bottom:1px solid #ddd;
+  overflow-y:auto;
 }
 
-.cart-item-image{
-    width:65px;
-    height:75px;
-    object-fit:cover;
-    border-radius:6px;
-    flex-shrink:0;
-}
-
-.cart-item-info{
-    flex:1;
-}
-
-.cart-item-info strong{
-    display:block;
-    font-size:14px;
-}
-
-.cart-item-info p{
-    margin:4px 0;
-    font-size:13px;
-}
 .cart-header{
   display:flex;
   justify-content:space-between;
@@ -134,6 +100,1236 @@ nav a{
 }
 
 .cart-header button{
+  border:0;
+  background:none;
+  font-size:30px;
+  cursor:pointer;
+}
+
+.cart-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:15px 0;
+  border-bottom:1px solid #ddd;
+}
+
+.cart-item-image{
+  width:70px;
+  height:80px;
+  object-fit:cover;
+  border-radius:6px;
+  flex-shrink:0;
+}
+
+.cart-item-info{
+  flex:1;
+}
+
+.cart-item-info strong{
+  display:block;
+  font-size:14px;
+}
+
+.cart-item-info p{
+  margin:4px 0;
+  font-size:13px;
+  color:#666;
+}
+
+.cart-remove{
+  border:0;
+  background:none;
+  color:#777;
+  font-size:11px;
+  cursor:pointer;
+}
+
+.quantity-control{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:7px;
+}
+
+.quantity-control button{
+  width:25px;
+  height:25px;
+  border:1px solid #ddd;
+  background:#fff;
+  cursor:pointer;
+}
+
+.quantity-control span{
+  min-width:20px;
+  text-align:center;
+}
+
+.cart-total{
+  margin-top:25px;
+  padding-top:15px;
+  border-top:1px solid #ddd;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.checkout-btn{
+  width:100%;
+  margin-top:20px;
+  padding:14px;
+  background:#111;
+  color:#fff;
+  border:0;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+  max-width:1200px;
+  margin:auto;
+  padding:75px 20px 60px;
+  text-align:center;
+}
+
+.hero small{
+  color:#b1842f;
+  letter-spacing:3px;
+  font-weight:bold;
+}
+
+.hero h1{
+  font-size:clamp(42px,8vw,82px);
+  letter-spacing:8px;
+  margin:18px 0 10px;
+}
+
+.hero p{
+  color:#666;
+  max-width:600px;
+  margin:auto;
+  line-height:1.7;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:28px;
+  padding:13px 25px;
+  background:#111;
+  color:#fff;
+  text-decoration:none;
+  border-radius:4px;
+  border:0;
+  cursor:pointer;
+}
+
+/* SECTIONS */
+
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:55px 20px;
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.section-title h2{
+  font-size:28px;
+}
+
+/* CATEGORY FILTER */
+
+.category-bar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:25px;
+}
+
+.category-btn{
+  border:1px solid #ddd;
+  background:#fff;
+  padding:9px 16px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.category-btn.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+/* PRODUCTS */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.card{
+  border:1px solid #eee;
+  background:#fff;
+  overflow:hidden;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.product-image{
+  height:270px;
+  background:#f5f5f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#999;
+  font-size:13px;
+  overflow:hidden;
+  cursor:zoom-in;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.3s ease;
+}
+
+.product-image:hover img{
+  transform:scale(1.5);
+}
+
+.card-info{
+  padding:17px;
+}
+
+.card-info h3{
+  font-size:16px;
+  margin-bottom:7px;
+}
+
+.team{
+  color:#777;
+  font-size:13px;
+}
+
+.category-label{
+  display:inline-block;
+  margin-top:7px;
+  font-size:11px;
+  color:#999;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.price{
+  margin-top:12px;
+  font-weight:bold;
+  font-size:17px;
+}
+
+.sizes{
+  margin-top:12px;
+}
+
+.sizes label{
+  display:block;
+  font-size:12px;
+  color:#777;
+  margin-bottom:6px;
+}
+
+.variant-select,
+.size-select{
+  width:100%;
+  padding:10px;
+  border:1px solid #ddd;
+  background:#fff;
+  margin-bottom:8px;
+}
+
+.size-status{
+  font-size:11px;
+  margin-top:-2px;
+  margin-bottom:7px;
+  color:#777;
+}
+
+.buy{
+  width:100%;
+  margin-top:8px;
+  padding:11px;
+  background:#111;
+  color:#fff;
+  border:0;
+  cursor:pointer;
+}
+
+.buy.disabled{
+  background:#ddd;
+  color:#777;
+  cursor:not-allowed;
+}
+
+/* BANNER */
+
+.banner{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:55px 20px;
+  margin-top:20px;
+}
+
+.banner h2{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.banner p{
+  color:#ccc;
+}
+
+/* ABOUT */
+
+.about{
+  text-align:center;
+  max-width:700px;
+  margin:auto;
+  line-height:1.8;
+  color:#666;
+}
+
+/* FOOTER */
+
+footer{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:35px 20px;
+  margin-top:50px;
+}
+
+footer .footer-logo{
+  color:#c89b3c;
+  font-weight:bold;
+  letter-spacing:5px;
+  font-size:20px;
+}
+
+footer p{
+  color:#999;
+  font-size:12px;
+  margin-top:10px;
+}
+
+/* IMAGE VIEWER */
+
+.image-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.95);
+  z-index:5000;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+.image-modal.active{
+  display:flex;
+}
+
+.image-modal-close{
+  position:absolute;
+  top:18px;
+  right:25px;
+  color:#fff;
+  font-size:38px;
+  background:none;
+  border:0;
+  cursor:pointer;
+  z-index:5002;
+}
+
+.viewer-main{
+  width:90vw;
+  height:75vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  touch-action:none;
+}
+
+.viewer-main img{
+  max-width:90%;
+  max-height:90%;
+  object-fit:contain;
+  transform:scale(1);
+  transition:transform .15s ease;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+.viewer-controls{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+
+.viewer-controls button{
+  background:#fff;
+  border:0;
+  padding:9px 15px;
+  cursor:pointer;
+  border-radius:4px;
+}
+
+.viewer-thumbnails{
+  display:flex;
+  gap:8px;
+  margin-top:15px;
+  max-width:90vw;
+  overflow-x:auto;
+  padding:5px;
+}
+
+.viewer-thumbnails img{
+  width:55px;
+  height:65px;
+  object-fit:cover;
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+.viewer-thumbnails img.active{
+  border-color:#fff;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  nav{
+    display:none;
+    position:absolute;
+    top:100%;
+    right:20px;
+    background:#fff;
+    padding:15px;
+    flex-direction:column;
+    gap:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    z-index:1000;
+  }
+
+  nav a{
+    display:block;
+    margin-left:0;
+    padding:8px 12px;
+  }
+
+  .menu-btn{
+    display:block;
+    position:relative;
+    z-index:1001;
+  }
+
+  .logo-image{
+    width:220px;
+  }
+
+  .hero{
+    padding-top:55px;
+  }
+
+  .products{
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+
+  .product-image{
+    height:190px;
+  }
+
+  .card-info{
+    padding:12px;
+  }
+
+  .card-info h3{
+    font-size:14px;
+  }
+
+  .section{
+    padding:40px 14px;
+  }
+
+  .cart-panel{
+    width:100%;
+    max-width:100%;
+  }
+
+  .viewer-main{
+    width:100vw;
+    height:70vh;
+  }
+
+  .viewer-main img{
+    max-width:96%;
+    max-height:90%;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="nav">
+
+    <a href="#" class="logo">
+      <img src="prime-website-logo.png"
+           class="logo-image"
+           alt="PRIME — FUEL YOUR PRIME">
+    </a>
+
+    <nav>
+
+      <a href="#shop">Shop Now</a>
+
+      <a href="#about">About</a>
+
+      <a href="#contact">Contact</a>
+
+      <a href="#cart"
+         class="cart"
+         onclick="openCart(); return false;">
+         Cart <span id="cartCount">0</span>
+      </a>
+
+    </nav>
+
+    <button class="menu-btn"
+            onclick="toggleMenu()">
+      ☰
+    </button>
+
+  </div>
+
+</header>
+
+
+<section class="hero">
+
+  <small>SPORTS • FASHION • LIFESTYLE</small>
+
+  <h1>FUEL YOUR PRIME</h1>
+
+  <p>
+    Premium sportswear, fashion and lifestyle essentials for those
+    who live with passion, move with purpose and never settle.
+  </p>
+
+  <a href="#shop" class="btn">SHOP NOW</a>
+
+</section>
+
+
+<section class="section" id="shop">
+
+  <div class="section-title">
+
+    <h2>Catalogue</h2>
+
+  </div>
+
+  <div id="categoryBar"
+       class="category-bar">
+  </div>
+
+  <div class="products"
+       id="products">
+  </div>
+
+</section>
+
+
+<section class="banner">
+
+  <h2>WEAR YOUR PASSION.</h2>
+
+  <p>
+    Your choice. Your selection. Your prime.
+  </p>
+
+</section>
+
+
+<section class="section" id="about">
+
+  <div class="about">
+
+    <h2>ABOUT PRIME</h2>
+
+    <br>
+
+    <p>
+      PRIME is built for people who want to look good,
+      move with purpose and represent what they love.
+      From sportswear and footwear to fashion and lifestyle,
+      we're here to bring quality, style and attitude to your prime.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section class="section" id="contact">
+
+  <div class="about">
+
+    <h2>NEED A PRODUCT?</h2>
+
+    <br>
+
+    <p>
+      Can't find what you're looking for?
+      Let us know and we'll try to bring it back.
+    </p>
+
+    <a class="btn"
+       href="mailto:fuelyourprime@gmail.com?subject=Jersey%20Restock%20Request">
+       REQUEST RESTOCK
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- CART -->
+
+<div id="cartPanel"
+     class="cart-panel">
+
+  <div class="cart-header">
+
+    <h2>Your Request</h2>
+
+    <button onclick="closeCart()">×</button>
+
+  </div>
+
+  <div id="cartItems"></div>
+
+  <div class="cart-total">
+
+    Total: ₹<span id="cartTotal">0</span>
+
+  </div>
+
+  <button class="checkout-btn"
+          onclick="checkout()">
+
+    SEND REQUEST ON WHATSAPP
+
+  </button>
+
+</div>
+
+
+<!-- IMAGE VIEWER -->
+
+<div id="imageModal"
+     class="image-modal">
+
+  <button class="image-modal-close"
+          onclick="closeImageViewer()">
+
+    ×
+
+  </button>
+
+  <div class="viewer-main"
+       id="viewerMain">
+
+    <img id="viewerImage"
+         src=""
+         alt="Product image">
+
+  </div>
+
+  <div class="viewer-controls">
+
+    <button onclick="zoomImage(1.2)">
+      +
+    </button>
+
+    <button onclick="resetZoom()">
+      RESET
+    </button>
+
+    <button onclick="zoomImage(0.8)">
+      −
+    </button>
+
+  </div>
+
+  <div id="viewerThumbnails"
+       class="viewer-thumbnails">
+  </div>
+
+</div>
+
+
+<footer>
+
+  <div class="footer-logo">
+    PRIME
+  </div>
+
+  <p>FUEL YOUR PRIME</p>
+
+  <p>© 2026 PRIME. All rights reserved.</p>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   PRIME PRODUCT CATALOGUE
+   =========================================================
+
+   THIS IS THE MAIN SECTION YOU WILL EDIT IN THE FUTURE.
+
+   Add your own products here.
+
+   images:
+   Add as many product images as you want.
+
+   sizeStatus:
+   "In Stock"
+   "On Demand"
+   "Not Available"
+
+   Kids, XS, S, M, L, XL, 2XL, 3XL and 4XL are supported.
+
+   ========================================================= */
+
+
+const ALL_SIZES = [
+  "Kids",
+  "XS",
+  "S",
+  "M",
+  "L",
+  "XL",
+  "2XL",
+  "3XL",
+  "4XL"
+];
+
+
+const products = [
+
+  {
+    name:"Portugal black panther player version #7",
+
+    category:"Football Jerseys",
+
+    team:"Portugal",
+
+    images:[
+      "Portugal black panther player version.jpg"
+    ],
+
+    variants:{
+      "Player":{
+        price:750,
+        sizes:{
+          "Kids":"On Demand",
+          "XS":"On Demand",
+          "S":"On Demand",
+          "M":"In Stock",
+          "L":"In Stock",
+          "XL":"In Stock",
+          "2XL":"On Demand",
+          "3XL":"In Stock",
+          "4XL":"On Demand"
+        }
+      },
+
+      "Full Sleeve":{
+        price:820,
+        sizes:{
+          "Kids":"On Demand",
+          "XS":"On Demand",
+          "S":"On Demand",
+          "M":"In Stock",
+          "L":"In Stock",
+          "XL":"On Demand",
+          "2XL":"On Demand",
+          "3XL":"On Demand",
+          "4XL":"On Demand"
+        }
+      }
+    }
+
+  },
+
+
+  {
+    name:"Barcelona Away Purple Player version",
+
+    category:"Football Jerseys",
+
+    team:"Barcelona",
+
+    images:[
+      "Barcelona Away Purple Player version.jpg"
+    ],
+
+    variants:{
+      "Player":{
+        price:750,
+        sizes:{
+          "Kids":"On Demand",
+          "XS":"On Demand",
+          "S":"On Demand",
+          "M":"In Stock",
+          "L":"In Stock",
+          "XL":"In Stock",
+          "2XL":"On Demand",
+          "3XL":"On Demand",
+          "4XL":"On Demand"
+        }
+      }
+    }
+
+  },
+
+
+  {
+    name:"Real madrid away green player version",
+
+    category:"Football Jerseys",
+
+    team:"Real Madrid",
+
+    images:[
+      "Real madrid away green player version.jpg"
+    ],
+
+    variants:{
+      "Player":{
+        price:750,
+        sizes:{
+          "Kids":"On Demand",
+          "XS":"On Demand",
+          "S":"In Stock",
+          "M":"In Stock",
+          "L":"In Stock",
+          "XL":"In Stock",
+          "2XL":"On Demand",
+          "3XL":"On Demand",
+          "4XL":"On Demand"
+        }
+      },
+
+      "Full Sleeve":{
+        price:820,
+        sizes:{
+          "Kids":"On Demand",
+          "XS":"On Demand",
+          "S":"On Demand",
+          "M":"On Demand",
+          "L":"In Stock",
+          "XL":"On Demand",
+          "2XL":"On Demand",
+          "3XL":"On Demand",
+          "4XL":"On Demand"
+        }
+      }
+    }
+
+  },
+
+
+  {
+    name:"Spain Away full Sleeves Player version",
+
+    category:"Football Jerseys",
+
+    team:"Spain",
+
+    images:[
+      "Spain Away player version.jpg"
+    ],
+
+    variants:{
+      "Full Sleeve":{
+        price:820,
+        sizes:{
+          "Kids":"On Demand",
+          "XS":"On Demand",
+          "S":"On Demand",
+          "M":"In Stock",
+          "L":"In Stock",
+          "XL":"On Demand",
+          "2XL":"On Demand",
+          "3XL":"On Demand",
+          "4XL":"In Stock"
+        }
+      }
+    }
+
+  }
+
+];
+
+
+/* =========================================================
+   CART
+   ========================================================= */
+
+let cart = [];
+
+
+/* =========================================================
+   CATEGORY SYSTEM
+   ========================================================= */
+
+let activeCategory = "All";
+
+
+function renderCategories(){
+
+  const bar = document.getElementById("categoryBar");
+
+  const categories = [
+    "All",
+    ...new Set(products.map(product => product.category))
+  ];
+
+  bar.innerHTML = categories.map(category => `
+
+    <button
+      class="category-btn ${category === activeCategory ? "active" : ""}"
+      onclick="selectCategory('${escapeAttribute(category)}')">
+
+      ${escapeHTML(category)}
+
+    </button>
+
+  `).join("");
+
+}
+
+
+function selectCategory(category){
+
+  activeCategory = category;
+
+  renderCategories();
+
+  renderProducts();
+
+}
+
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
+
+function renderProducts(){
+
+  const container = document.getElementById("products");
+
+  container.innerHTML = "";
+
+  const visibleProducts =
+    activeCategory === "All"
+    ? products
+    : products.filter(product => product.category === activeCategory);
+
+
+  visibleProducts.forEach(product => {
+
+    const index = products.indexOf(product);
+
+    const firstVariant =
+      Object.keys(product.variants)[0];
+
+    const firstVariantData =
+      product.variants[firstVariant];
+
+    const card =
+      document.createElement("div");
+
+    card.className = "card";
+
+
+    const variantOptions =
+      Object.keys(product.variants)
+      .map(variant => `
+
+        <option value="${escapeAttribute(variant)}">
+          ${escapeHTML(variant)}
+        </option>
+
+      `)
+      .join("");
+
+
+    card.innerHTML = `
+
+      <div
+        class="product-image"
+        onclick="openImageViewer(${index})">
+
+        <img
+          src="${product.images[0]}"
+          alt="${escapeAttribute(product.name)}"
+          onerror="this.style.display='none';this.parentElement.innerHTML='Jersey Image';">
+
+      </div>
+
+
+      <div class="card-info">
+
+        <h3>
+          ${escapeHTML(product.name)}
+        </h3>
+
+        <div class="team">
+          ${escapeHTML(product.team)}
+        </div>
+
+        <div class="category-label">
+          ${escapeHTML(product.category)}
+        </div>
+
+
+        <div class="price"
+             id="price-${index}">
+
+          ₹${firstVariantData.price}
+
+        </div>
+
+
+        <div class="sizes">
+
+          <label>
+            Version:
+          </label>
+
+          <select
+            id="variant-${index}"
+            class="variant-select"
+            onchange="updateProductOptions(${index})">
+
+            ${variantOptions}
+
+          </select>
+
+
+          <label>
+            Size:
+          </label>
+
+          <select
+            id="size-${index}"
+            class="size-select"
+            onchange="updateSizeStatus(${index})">
+
+          </select>
+
+
+          <div
+            id="status-${index}"
+            class="size-status">
+
+          </div>
+
+        </div>
+
+
+        <button
+          id="add-${index}"
+          class="buy"
+          onclick="addToCart(${index})">
+
+          ADD TO REQUEST
+
+        </button>
+
+      </div>
+
+    `;
+
+
+    container.appendChild(card);
+
+    updateProductOptions(index);
+
+  });
+
+}
+
+
+/* =========================================================
+   SIZE / STOCK SYSTEM
+   ========================================================= */
+
+function updateProductOptions(index){
+
+  const product = products[index];
+
+  const variantSelect =
+    document.getElementById("variant-" + index);
+
+  const sizeSelect =
+    document.getElementById("size-" + index);
+
+  const priceElement =
+    document.getElementById("price-" + index);
+
+  const selectedVariant =
+    variantSelect.value;
+
+  const variant =
+    product.variants[selectedVariant];
+
+
+  priceElement.textContent =
+    "₹" + variant.price;
+
+
+  sizeSelect.innerHTML = ALL_SIZES.map(size => {
+
+    const status =
+      variant.sizes[size] || "On Demand";
+
+    const disabled =
+      status === "Not Available";
+
+    return `
+
+      <option
+        value="${escapeAttribute(size)}"
+        ${disabled ? "disabled" : ""}>
+
+        ${escapeHTML(size)} — ${escapeHTML(status)}
+
+      </option>
+
+    `;
+
+  }).join("");
+
+
+  sizeSelect.value = "";
+
+
+  const placeholder =
+    document.createElement("option");
+
+  placeholder.value = "";
+  placeholder.textContent = "Select size";
+  placeholder.disabled = false;
+  placeholder.selected = true;
+
+  sizeSelect.insertBefore(
+    placeholder,
+    sizeSelect.firstChild
+  );
+
+
+  updateSizeStatus(index);
+
+}
+
+
+function updateSizeStatus(index){
+
+  const variantSelect =
+    document.getElementById("variant-" + index);
+
+  const sizeSelect =
+    document.getElementById("size-" + index);
+
+  const statusElement =
+    document.getElementById("status-" + index);
+
+  const addButton =
+    document.getElementById("add-" + index);
+
+
+  const variant =
+    products[index].variants[variantSelect.value];
+
+
+  const size =
+    sizeSelect.value;
+
+
+  if(!size){
+
+    statusElement.textContent =
+      "Select a size.";
+
+    addButton.disabled = true;
+
+    return;
+
+  }
+
+
+  const status =
+    variant.sizes[size];
+
+
+  if(status === "In Stock"){
+
+    statusElement.textContent =
+      "✓ Available";
+
+    statusElement.style.color =
+      "#228b22";
+
+    addButton.disabled = false;
+
+  }
+
+  else if(status === "On Demand"){
+
+    statusElement.textCon.cart-header button{
   border:0;
   background:none;
   font-size:30px;
